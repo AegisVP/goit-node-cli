@@ -1,0 +1,23 @@
+{
+  "name": "goit-node-cli",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "test:list": "npm start -- -a list",
+    "test:get": "npm start -- -a get -i e445ba73fb2",
+    "test:add": "npm start -- -a add -n 'New Name' -e 'name@email.com' -p '+380999999999'",
+    "test:remove": "npm start -- -a remove -i e445ba73fb2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "commander": "^13.1.0",
+    "uid": "^2.0.2"
+  }
+}
