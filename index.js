@@ -1,6 +1,5 @@
 import { program } from 'commander';
-import { addContact, getContactById, listContacts, removeContact } from './contactsFileHandler.js';
-import { uid } from 'uid';
+import { addContact, getContactById, listContacts, removeContact } from './contacts.js';
 
 program
   .option('-a, --action <type>', 'choose action')
@@ -38,7 +37,3 @@ async function invokeAction({ action, id, ...data }) {
 }
 
 invokeAction(options);
-
-for (let i = 0; i < 10; i += 1) {
-  console.log(uid());
-}
