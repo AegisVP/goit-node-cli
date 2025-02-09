@@ -12,23 +12,25 @@ program.parse();
 
 const options = program.opts();
 
+const formatContact = ({ id, name, email, phone }) => (id ? ` - [${id}] ${name} - ${email} - ${phone}` : '');
+
 // TODO: рефакторити
 async function invokeAction({ action, id, ...data }) {
   switch (action) {
     case 'list':
-      console.log(await listContacts());
+      console.log((await listContacts()).map(formatContact).join('\n'));
       break;
 
     case 'get':
-      console.log(await getContactById(id));
+      console.log(formatContact(await getContactById(id)));
       break;
 
     case 'add':
-      console.log(await addContact(data));
+      console.log(formatContact(await addContact(data)));
       break;
 
     case 'remove':
-      console.log(await removeContact(id));
+      console.log(formatContact(await removeContact(id)));
       break;
 
     default:
